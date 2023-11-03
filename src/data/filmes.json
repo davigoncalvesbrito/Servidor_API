@@ -1,0 +1,156 @@
+[{
+    "titulo": "O Poderoso Chefão",
+    "diretor": "Francis Ford Coppola",
+    "lancamento": 1972,
+    "genero": "Drama",
+    "descricao":"Herói de guerra e filho caçula de um poderoso chefe do crime de Nova York, Michael Corleone se envolve nos negócios da família depois que tentam assassinar seu pai.",
+    "imagem":"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg",
+    "ondeAssistir":"https://www.netflix.com/br/title/60011152"
+  },
+  {
+    "titulo": "A Origem",
+    "diretor": "Christopher Nolan",
+    "lancamento": 2010,
+    "genero": "Ficção Científica",
+    "descricao":"conta a história de um grupo de golpistas que utiliza uma máquina de invadir sonhos para conquistar os seus objetivos mais audaciosos.",
+    "imagem":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS-1t6PkPosP80FBAsRzIM_SuZGdcY6svaMfWP8X9BdiqNUvyQ8",
+    "ondeAssistir":"https://www.hbomax.com/br/pt/feature/urn:hbo:feature:GYDbfcQGssU-dEAEAAAAI"
+  },
+  {
+    "titulo": "O Senhor dos Anéis: A Sociedade do Anel",
+    "diretor": "Peter Jackson",
+    "lancamento": 2001,
+    "genero": "Fantasia",
+    "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTcpoyk641ovC9v94qS-gGKc6xq-ZZaUNsOx4gv0eXwG0VnW1G8"
+  },
+  {
+    "titulo":"A Chamada",
+    "diretor":"Nimród Antal",
+    "lancamento":2023,
+    "genero":"Ação",
+    "descricao":"Um empresário deve seguir ordens depois de saber que seu carro está programado para explodir.",
+    "imagem":"https://br.web.img2.acsta.net/pictures/23/06/28/21/56/4545047.jpg"
+  },
+  {
+    "titulo": "Forrest Gump - O Contador de Histórias",
+    "diretor": "Robert Zemeckis",
+    "lancamento": 1994,
+    "genero": "Drama",
+    "descricao": "A emocionante jornada de um homem comum através de eventos históricos.",
+    "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTFEXK7nOeOlpnsn9IxrdUc1Z53qnHLkE7kPAkhyCTf0mwJ8beF"
+  },
+  {
+    "titulo": "Matrix",
+    "diretor": "The Wachowskis",
+    "lancamento": 1999,
+    "genero": "Ficção Científica",
+    "descricao": "Um filme revolucionário que explora a natureza da realidade.",
+    "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQwLB63Bm8WaqqWPmYLi9_wEXXt47qq1UZBSzw05b9NrXlQyN-O"
+  },
+  {
+    "titulo": "Pulp Fiction: Tempo de Violência",
+    "diretor": "Quentin Tarantino",
+    "lancamento": 1994,
+    "genero": "Ação",
+    "descricao": "Um filme cheio de personagens excêntricos e histórias entrelaçadas.",
+    "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSgdnAx4RcqdeSRes2ziir-xst2CwO0G99WDZHHTe1a3bQzlsxw"
+  },
+  {
+    "titulo": "O Rei Leão",
+    "diretor": "Roger Allers, Rob Minkoff",
+    "lancamento": 1994,
+    "genero": "Animação",
+    "descricao": "A jornada de Simba, um jovem leão, para se tornar o rei da selva.",
+    "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRUw0LXm19XFQZTi6aLF08rblrkqsDuxArqMLrd25L-e_piOPNi"
+  },
+  {
+    "titulo": "Star Wars: Episódio IV - Uma Nova Esperança",
+    "diretor": "George Lucas",
+    "lancamento": 1977,
+    "genero": "Ficção Científica",
+    "descricao": "O início da saga de Star Wars, com Luke Skywalker e a Princesa Leia.",
+    "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgDnDH4nBpREQqcfIgSAuZQ1n4N31hGZo-Dn2jZH3pga-xuo0q"
+  },
+  {
+    "titulo": "Titanic",
+    "diretor": "James Cameron",
+    "lancamento": 1997,
+    "genero": "Romance",
+    "descricao": "um drama onde se mistura o romance, que serve de fio condutor à tragédia, e a ação, em que os efeitos especiais ocupam o lugar de honra. Baseado em factos reais, retrata o desastre marítimo, ocorrido no início do século XX, que deixou marcas profundas na história deste século.",
+    "imagem": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ9Im1IRTkH5oDJ3W9-NKiW8sCIm2Y0bqoBN39sgKH1_pvRBqMD"
+  },
+  {
+    "titulo":"Paixão Sem Limites",
+    "diretor":"Roger Allers, Rob Minkoff",
+    "lancamento":2010,
+    "genero":"Romance",
+    "descricao":"Hace (Mario Casas) é um rapaz rebelde, impulsivo, que adora viver perigosamente e está sempre participando em corridas ilegais de motos. Babi e Hace vão lutar contra preconceitos e contra todos, para viver uma história de amor.",
+    "imagem":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRJvKqIYqD78eDOsD9_ySmj8uPfa698BcOEwlKPpb5r1KWA2DKw"
+  },
+  {
+    "titulo": "Gladiador",
+    "diretor": "Ridley Scott",
+    "lancamento": 2000,
+    "genero": "Ação",
+    "descricao": "A saga de um ex-general romano que busca vingança em Roma antiga.",
+    "imagem": "https://upload.wikimedia.org/wikipedia/pt/4/44/GladiadorPoster.jpg"
+  },
+  {
+    "titulo": "Interestelar",
+    "diretor": "Christopher Nolan",
+    "lancamento": 2014,
+    "genero": "Ficção Científica",
+    "descricao": "Uma equipe de exploradores viaja através de um buraco de minhoca em busca de um novo lar para a humanidade.",
+    "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRm2leyMGMJ84bXC4xcNE3nhwuFw__agAGieUDxrkA8qSLNAfh5"
+  },
+  {
+    "titulo": "Harry Potter e a Pedra Filosofal",
+    "diretor": "Chris Columbus",
+    "lancamento": 2001,
+    "genero": "Fantasia",
+    "descricao": "O primeiro filme da série Harry Potter, baseado nos livros de J.K. Rowling.",
+    "imagem": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTmXbZmL2nuVgDCsU5uQxB-nPcV3naKDhvdzi0k0R8xLZEQ5zVj"
+  },
+  {
+    "titulo": "E.T. - O Extraterrestre",
+    "diretor": "Steven Spielberg",
+    "lancamento": 1982,
+    "genero": "Família",
+    "descricao": "A amizade entre um garoto e um adorável extraterrestre.",
+    "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSsBHvSEjHm36XntB9XlxufcTBhe5yBr2lb8rpIOxRUDQdIeBgV"
+  },
+  {
+    "titulo": "Os Caça-Fantasmas",
+    "diretor": "Ivan Reitman",
+    "lancamento": 1984,
+    "genero": "Comédia",
+    "descricao": "Um grupo de caçadores de fantasmas enfrenta uma invasão paranormal em Nova York.",
+    "imagem": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRafX9aoC7knh6QHYAimJnZtzY7snPED7aIJ9z_PLy0GC98Ri5q"
+  },
+  {
+    "titulo": "O Labirinto do Fauno",
+    "diretor": "Guillermo del Toro",
+    "lancamento": 2006,
+    "genero": "Fantasia",
+    "descricao": "Uma jovem garota encontra um mágico e perigoso labirinto no pós-Guerra Civil Espanhola.",
+    "imagem": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQprLqK0sWx6Oz5LUcvTKOb-lcoHQHimDuaW7tKb6qoOAnJd2cU"
+  },
+  {
+    "titulo": "Cidadão Kane",
+    "diretor": "Orson Welles",
+    "lancamento": 1941,
+    "genero": "Drama",
+    "descricao": "Um olhar sobre a vida de um magnata da mídia americano.",
+    "imagem": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQppDu0hqXBVeag6VQ4LMw53MDFzBUPhoZzTHEEK7hPeYEfsTHf"
+  },
+  {
+    "titulo": "Jurassic Park",
+    "diretor": "Steven Spielberg",
+    "lancamento": 1993,
+    "genero": "Ação",
+    "descricao": "Um parque temático de dinossauros se transforma em um pesadelo mortal",
+    "imagem":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRUk_EDHSA1XfyncOXi0BVJNLV9hBStX2t973BVQeXvtM-KWeQA"
+  }
+
+ 
+]
