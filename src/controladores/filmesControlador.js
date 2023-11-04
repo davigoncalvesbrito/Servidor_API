@@ -2,12 +2,11 @@ const filmes = require("../data/filmes.json") //Arquivo Json
 const Filme = require("../modelos/Filme") //Classe Filme.js
 const fs = require("fs/promises")
 
-let id = filmes.length + 2;
+let idFilme = filmes.length + 2;
 
 function adicionarFilme(req, res) {
     try {
-
-        // ROTA PARA  ADICIONAR 'USUARIOS' AO ARRAY
+        //Recebe os atributos de usuário vindos do body da requisição
         const { titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir } = req.body; // OBTENDO O CORPO DA SOLICITAÇÃO  JSON
 
         //validação que ve se o filme já existe
@@ -16,14 +15,13 @@ function adicionarFilme(req, res) {
         if (filmeEncontrado) {
             return res.json({ mensagem: 'Filme já está cadastrado.' })
         }
+        //
+        const novoFilme = new Filme(idFilme, titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir);
+        filmes.push(novoFilme);// Adiciona aos filmes
 
-        const novoFilme = new Filme(id, titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir);
-        filmes.push(novoFilme);
+        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes));//Escreve no json
 
-        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes));
-
-        return res.json({ mensagem: 'Filme cadastrado com sucesso.' })
-
+        return res.json({ mensagem: 'Filme cadastrado com sucesso.', novoFilme })
 
     } catch (error) {
         return res.status(500).json({ mensagem: "Erro do servidor. Filme não adicionado" })
@@ -33,26 +31,35 @@ function adicionarFilme(req, res) {
 function editarFilme(req, res) {
 
     const { id } = req.params;
+    console.log(id);
     const { titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir } = req.body;
 
-    const filmeEncontrado = filmes.find((filme) => {
-        return filme.id === Number(id);
-    });
+    try {
+        //Procura o filme baseado no id informado no params.
+        const filmeEncontrado = filmes.find((filme) => filme.id === Number(id)); //Encontra o filme pelo id.
+        console.log(filmeEncontrado)
 
-    if (!filmeEncontrado) {
-        return res.status(404).json({ mensagem: 'Não existe filme a ser alterado para o ID informado.' });
+        //Se o filme não é encontrado, retorna mensagem
+        if (!filmeEncontrado) {
+            return res.status(404).json({ mensagem: 'Não existe filme a ser alterado para o ID informado.' });
+        }
+
+        //edita o filme
+        filmeEncontrado.titulo = titulo
+        filmeEncontrado.diretor = diretor
+        filmeEncontrado.lancamento = lancamento
+        filmeEncontrado.genero = genero
+        filmeEncontrado.descricao = descricao
+        filmeEncontrado.imagem = imagem
+        filmeEncontrado.ondeAssistir = ondeAssistir
+
+        //escreve no arquivo json e retorna mensagem
+        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes));//Escreve no json
+        return res.status(201).json({ mensagem: 'Filme alterado', filmeEncontrado });
+
+    } catch (error) {
+        return res.status(500).json({ mensagem: "Erro do servidor. Filme não alterado" })
     }
-
-    filmeEncontrado.titulo = titulo
-    filmeEncontrado.diretor = diretor
-    filmeEncontrado.lancamento = lancamento
-    filmeEncontrado.genero = genero
-    filmeEncontrado.descricao = descricao
-    filmeEncontrado.imagem = imagem
-    filmeEncontrado.ondeAssistir = ondeAssistir
-
-    return res.json({ mensagem: 'Filme alterado', filmeEncontrado });
-
 }
 
 function listarFilme(req, res) {
