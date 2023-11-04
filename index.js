@@ -12,3 +12,4 @@ servidor.use(rotas); // RECEBENDO AS ROTAS NO SERVIDOR
 servidor.listen(3000, () => {
   console.log("Servidor Funcionando http://localhost:3000");
 });
+  
