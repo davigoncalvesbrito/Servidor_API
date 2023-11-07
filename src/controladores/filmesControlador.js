@@ -67,4 +67,29 @@ function listarFilme(req, res) {
     return res.status(200).json(filmes)
 }
 
-module.exports = { adicionarFilme, editarFilme, listarFilme }
+function removerFilme(req, res){
+    const {id} = req.params;    
+    console.log(id)
+  
+   try {
+        //Procura o index do filme conformeo id informado no params.
+        const filmesEncontrado = filmes.find(filme => filme.id === Number(id)); 
+                
+        // Se o Id não for localizado retorna a mensagem abaixo.
+        if (!filmesEncontrado) {
+            return res.status(404).json({ mensagem: 'Não existe filme para o ID informado.' });
+        }
+        const filmeIndex = filmes.findIndex(filme => filme.id === Number(id));
+        console.log(filmeIndex);       
+        filmes.splice(filmeIndex, 1);
+
+        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes, null, 4));//Escreve no json
+        //return res.status(200).json({ mensagem: "Filme excluído com sucesso!"}); 
+        return res.json({mensagem: "Filme excluído com sucesso!"})
+        
+   } catch (error) {
+        return res.status(500).json({ mensagem: "Erro do servidor. Filme não removido" })
+   }
+}
+
+module.exports = { adicionarFilme, editarFilme, listarFilme, removerFilme }
