@@ -1,11 +1,20 @@
 const filmes = require("../data/filmes.json") //Arquivo Json
 const Filme = require("../modelos/Filme") //Classe Filme.js
 const fs = require("fs/promises")
+const { validationResult } = require("express-validator")
 
-let idFilme = filmes.length + 2;
+let idFilme = filmes.length + 2; //Usado para setar o id do filme automaticamente
 
 function adicionarFilme(req, res) {
     try {
+
+        //Aqui ele recebe os erros da requisição e não chega a adicionar nada caso tenha algum.
+        const errors = validationResult(req);
+        console.log(errors)
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
         //Recebe os atributos de usuário vindos do body da requisição
         const { titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir } = req.body; // OBTENDO O CORPO DA SOLICITAÇÃO  JSON
 
@@ -19,7 +28,7 @@ function adicionarFilme(req, res) {
         const novoFilme = new Filme(idFilme, titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir);
         filmes.push(novoFilme);// Adiciona aos filmes
 
-        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes));//Escreve no json
+        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes, null, 4));//Escreve no json
 
         return res.json({ mensagem: 'Filme cadastrado com sucesso.', novoFilme })
 
@@ -54,7 +63,7 @@ function editarFilme(req, res) {
         filmeEncontrado.ondeAssistir = ondeAssistir
 
         //escreve no arquivo json e retorna mensagem
-        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes));//Escreve no json
+        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes, null, 4));//Escreve no json
         return res.status(201).json({ mensagem: 'Filme alterado', filmeEncontrado });
 
     } catch (error) {

@@ -170,5 +170,25 @@
         "genero": "Ação",
         "descricao": "Os paleontólogos Alan Grant, Ellie Sattler e o matemático Ian Malcolm fazem parte de um seleto grupo escolhido para visitar uma ilha habitada por dinossauros criados a partir de DNA pré-histórico. O idealizador do projeto e bilionário John Hammond garante a todos que a instalação é completamente segura. Mas após uma queda de energia, os visitantes descobrem, aos poucos, que vários predadores ferozes estão soltos e à caça.",
         "imagem": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRUk_EDHSA1XfyncOXi0BVJNLV9hBStX2t973BVQeXvtM-KWeQA"
+    },
+    {
+        "id": 21,
+        "titulo": "",
+        "diretor": "MaisUm",
+        "lancamento": 1972,
+        "genero": "Drama",
+        "descricao": "Herói de guerra e filho caçula de um poderoso chefe do crime de Nova York, Michael Corleone se envolve nos negócios da família depois que tentam assassinar seu pai.",
+        "imagem": "https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg",
+        "ondeAssistir": "MaisUm"
+    },
+    {
+        "id": 22,
+        "titulo": "",
+        "diretor": "teste",
+        "lancamento": 1972,
+        "genero": "Drama",
+        "descricao": "Herói de guerra e filho caçula de um poderoso chefe do crime de Nova York, Michael Corleone se envolve nos negócios da família depois que tentam assassinar seu pai.",
+        "imagem": "https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg",
+        "ondeAssistir": "MaisUm"
     }
 ]
