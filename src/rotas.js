@@ -1,12 +1,14 @@
 const express = require("express");
 const rotas = express.Router();
 const filmes = require("./data/filmes.json");
-const { adicionarFilme, editarFilme, listarFilme, removerFilme } = require("./controladores/filmesControlador") //Importando controlador Filmes
+const { adicionarFilme, editarFilme, listarFilme, removerFilme } = require("./controladores/filmesControlador")
+const { adicionarUsuario, listarUsuarios } = require("./controladores/UsuariosControlador") //Importando controlador Filmes
 const { body, validationResult } = require("express-validator")
 
 
 // JSON FILMES (GET = BUSCAR OU SELECIONAR DADOS)
 rotas.get("/filmes", listarFilme);
+rotas.get("/usuarios", listarUsuarios)
 
 //POST = INSERIR FILME
 rotas.post(`/filme`,
@@ -19,6 +21,9 @@ rotas.post(`/filme`,
     body('imagem').notEmpty().withMessage("O campo imagem é obrigatório"),
 
   ], adicionarFilme);
+
+//INSERIR USUARIO
+rotas.post("/usuario", adicionarUsuario)
 
 //PUT - EDITAR FILME
 rotas.put('/filme/:id', editarFilme)
