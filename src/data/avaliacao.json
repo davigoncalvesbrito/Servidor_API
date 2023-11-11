@@ -1,0 +1,9 @@
+[
+    {
+        "id": 2,
+        "idUsuario": 4,
+        "idFilme": 12,
+        "comentario": "Um dos melhores filmes até hoje",
+        "curtiu": true
+    }
+]

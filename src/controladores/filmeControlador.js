@@ -1,9 +1,9 @@
-const filmes = require("../data/filmes.json") //Arquivo Json
-const Filme = require("../modelos/Filme") //Classe Filme.js
+const jsonFilmes = require("../data/filmes.json") //Arquivo Json
+const filmeModel = require("../modelos/Filme") //Classe Filme.js
 const fs = require("fs/promises")
 const { validationResult } = require("express-validator")
 
-let idFilme = filmes.length + 2; //Usado para setar o id do filme automaticamente
+let idFilme = jsonFilmes.length + 2; //Usado para setar o id do filme automaticamente
 
 function adicionarFilme(req, res) {
     try {
@@ -19,16 +19,16 @@ function adicionarFilme(req, res) {
         const { titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir } = req.body; // OBTENDO O CORPO DA SOLICITAÇÃO  JSON
 
         //validação que ve se o filme já existe
-        const filmeEncontrado = filmes.find(filme => filme.titulo === titulo && filme.diretor == diretor);
+        const filmeEncontrado = jsonFilmes.find(filme => filme.titulo === titulo && filme.diretor == diretor);
 
         if (filmeEncontrado) {
             return res.json({ mensagem: 'Filme já está cadastrado.' })
         }
         //
-        const novoFilme = new Filme(idFilme, titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir);
-        filmes.push(novoFilme);// Adiciona aos filmes
+        const novoFilme = new filmeModel(idFilme, titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir);
+        jsonFilmes.push(novoFilme);// Adiciona aos filmes
 
-        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes, null, 4));//Escreve no json
+        fs.writeFile('./src/data/filmes.json', JSON.stringify(jsonFilmes, null, 4));//Escreve no json
 
         return res.json({ mensagem: 'Filme cadastrado com sucesso.', novoFilme })
 
@@ -45,7 +45,7 @@ function editarFilme(req, res) {
 
     try {
         //Procura o filme baseado no id informado no params.
-        const filmeEncontrado = filmes.find((filme) => filme.id === Number(id)); //Encontra o filme pelo id.
+        const filmeEncontrado = jsonFilmes.find((filme) => filme.id === Number(id)); //Encontra o filme pelo id.
         console.log(filmeEncontrado)
 
         //Se o filme não é encontrado, retorna mensagem
@@ -63,7 +63,7 @@ function editarFilme(req, res) {
         filmeEncontrado.ondeAssistir = ondeAssistir
 
         //escreve no arquivo json e retorna mensagem
-        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes, null, 4));//Escreve no json
+        fs.writeFile('./src/data/filmes.json', JSON.stringify(jsonFilmes, null, 4));//Escreve no json
         return res.status(201).json({ mensagem: 'Filme alterado', filmeEncontrado });
 
     } catch (error) {
@@ -73,7 +73,7 @@ function editarFilme(req, res) {
 
 function listarFilme(req, res) {
 
-    return res.status(200).json(filmes)
+    return res.status(200).json(jsonFilmes)
 }
 
 function removerFilme(req, res) {
@@ -82,7 +82,7 @@ function removerFilme(req, res) {
 
     try {
         //Procura o index do filme conformeo id informado no params.
-        const filmesEncontrado = filmes.find(filme => filme.id === Number(id));
+        const filmesEncontrado = jsonFilmes.find(filme => filme.id === Number(id));
 
         // Se o filme não for localizado retorna a mensagem abaixo.
         if (!filmesEncontrado) {
@@ -90,10 +90,10 @@ function removerFilme(req, res) {
         }
 
         //Já que o filme existe, exclui através do id usando o splice
-        const filmeIndex = filmes.findIndex(filme => filme.id === Number(id));
-        filmes.splice(filmeIndex, 1);
+        const filmeIndex = jsonFilmes.findIndex(filme => filme.id === Number(id));
+        jsonFilmes.splice(filmeIndex, 1);
 
-        fs.writeFile('./src/data/filmes.json', JSON.stringify(filmes, null, 4));//Escreve no json
+        fs.writeFile('./src/data/filmes.json', JSON.stringify(jsonFilmes, null, 4));//Escreve no json
         //return res.status(200).json({ mensagem: "Filme excluído com sucesso!"}); 
         return res.json({ mensagem: "Filme excluído com sucesso!" })
 
