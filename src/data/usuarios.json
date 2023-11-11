@@ -1,16 +1,36 @@
 [
     {
-        "id":"1",
-        "nome":"Davi",
-        "idade":25
+        "id": 1,
+        "nome": "Marcio",
+        "email": "teste1",
+        "senha": "teste1"
     },
     {
-        "id":"2",
-        "nome":"Rinaldo",
-        "idade":51
+        "id": 2,
+        "nome": "Wandeson",
+        "email": "teste2",
+        "senha": "teste2"
+    },
+    {
+        "nome": 3,
+        "email": "Marcio",
+        "senha": "mrcioholanda@gmail.com"
+    },
+    {
+        "nome": 4,
+        "email": "Marcio",
+        "senha": "davi.com"
+    },
+    {
+        "id": 5,
+        "email": "davi@gmail.com",
+        "nome": "Marcio",
+        "senha": "teste"
+    },
+    {
+        "id": 6,
+        "nome": "Marcio",
+        "email": "marcio.com",
+        "senha": "teste1"
     }
-    
-   
 ]
-
-
