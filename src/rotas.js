@@ -2,15 +2,16 @@ const express = require("express");
 const rotas = express.Router();
 const filmes = require("./data/filmes.json");
 const { adicionarFilme, editarFilme, listarFilme, removerFilme } = require("./controladores/filmesControlador")
-const { adicionarUsuario, listarUsuarios } = require("./controladores/UsuariosControlador") //Importando controlador Filmes
+const { adicionarUsuario, listarUsuarios, editarUsuario } = require("./controladores/UsuariosControlador") //Importando controlador Filmes
 const { body, validationResult } = require("express-validator")
 
 
-// JSON FILMES (GET = BUSCAR OU SELECIONAR DADOS)
+/* ----------ROTAS GET --------->  */
 rotas.get("/filmes", listarFilme);
 rotas.get("/usuarios", listarUsuarios)
 
-//POST = INSERIR FILME
+/* ----------ROTAS POST --------->  */
+//Inserir filme
 rotas.post(`/filme`,
   [
     body('titulo').notEmpty().withMessage("O campo título é obrigatório"),
@@ -22,18 +23,21 @@ rotas.post(`/filme`,
 
   ], adicionarFilme);
 
-//INSERIR USUARIO
-rotas.post("/usuario", adicionarUsuario)
+//Inserir Usuário
+rotas.post("/usuario", [
+  body('nome').notEmpty().withMessage("O campo nome é obrigatório"),
+  body('email').notEmpty().withMessage("O campo email é obrigatório"),
+  body('senha').notEmpty().withMessage("O campo senha é obrigatório"),
+], adicionarUsuario)
 
-//PUT - EDITAR FILME
+/* ----------ROTAS PUT --------->  */
+//Editar Filme
 rotas.put('/filme/:id', editarFilme)
-//DELETE - REmover FILME
+rotas.put('/usuario/:id', editarUsuario)
+
+/* ----------ROTAS Delete --------->  */
+//Remover filme
 rotas.delete("/filme/:id", removerFilme)
 
-// GET = BUSCA OU SELECIONAR DADOS
-rotas.get(`/filmes/filtrar/:titulo`, (requisicao, resposta) => {
-  // ROTA PARA OBTER DADOS DOS USUARIOS
-  return resposta.json(filmes);
-});
 
 module.exports = rotas; //EXPORTANDO ROTAS
