@@ -1,4 +1,4 @@
-const Usuario = require("../modelos/Usuario")
+const usuarioModel = require("../modelos/Usuario")
 const jsonUsuarios = require("../data/usuarios.json")
 const fs = require("fs/promises")
 const { validationResult } = require("express-validator")
@@ -29,7 +29,7 @@ function adicionarUsuario(req, res) {
             return res.json({ mensagem: 'E-mail já está cadastrado.' })
         }
         //
-        const novoUsuario = new Usuario(idUsuario, nome, email, senha);
+        const novoUsuario = new usuarioModel(idUsuario, nome, email, senha);
         jsonUsuarios.push(novoUsuario);// Adiciona aos filmes
 
         fs.writeFile('./src/data/usuarios.json', JSON.stringify(jsonUsuarios, null, 4));//Escreve no json
@@ -78,6 +78,29 @@ function editarUsuario(req, res) {
 }
 
 function deletarUsuario(req, res) {
+    const { id } = req.params;
+
+    try {
+        //Procura o index do filme conformeo id informado no params.
+        const usuarioEncontrado = jsonUsuarios.find(usuario => usuario.id === Number(id));
+
+        // Se o filme não for localizado retorna a mensagem abaixo.
+        if (!usuarioEncontrado) {
+            return res.status(404).json({ mensagem: 'Não existe usuário cadastrado com esse id.' });
+        }
+
+        //Já que o filme existe, exclui através do id usando o splice
+        const usuarioIndex = jsonUsuarios.findIndex(usuario => usuario.id === Number(id));
+        console.log(usuarioIndex)
+        jsonUsuarios.splice(usuarioIndex, 1);
+
+        fs.writeFile('./src/data/usuarios.json', JSON.stringify(jsonUsuarios, null, 4));//Escreve no json
+        return res.status(200).json({ mensagem: "Usuário excluído com sucesso!" })
+
+    } catch (error) {
+        console.log(error)
+        return res.status(500).json({ mensagem: "Erro do servidor. Usuario não removido" })
+    }
 }
 
 function listarUsuarios(req, res) {
