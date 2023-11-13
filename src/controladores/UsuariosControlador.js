@@ -42,6 +42,7 @@ function adicionarUsuario(req, res) {
 
 }
 
+    
 function editarUsuario(req, res) {
 
     const { id } = req.params;

@@ -32,5 +32,11 @@
         "nome": "Marcio",
         "email": "marcio.com",
         "senha": "teste1"
+    },
+    {
+        "id": 7,
+        "nome": "eudes",
+        "email": "eudessena",
+        "senha": "1234"
     }
 ]
