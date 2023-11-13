@@ -7,7 +7,8 @@ const { adicionarUsuario, listarUsuarios, editarUsuario, deletarUsuario } = requ
 const { adicionarAvaliacao, editarAvaliacao, listarAvaliacao, removerAvaliacao } = require("./controladores/avaliacaoControlador");
 const { body, validationResult } = require("express-validator")
 const validarPostUsuario = require("../src/util/validarUsuario")
-const requisicaoValidada = require("../src/util/validarRequisicao")
+const validarPostFilme = require("../src/util/validarFilme")
+const controladorValidacao = require("./util/controladorValidacao")
 
 
 
@@ -20,21 +21,10 @@ rotas.get("/avaliacao", listarAvaliacao)
 
 
 /* ----------ROTAS POST --------->  */
-//Inserir Filme / Usuario / Avaliacao
-rotas.post("/usuario", validarPostUsuario, requisicaoValidada, adicionarUsuario)
-rotas.post(`/filme`,
-    [
-        body('titulo').notEmpty().withMessage("O campo título é obrigatório"),
-        body('diretor').notEmpty().withMessage("O campo diretor é obrigatório"),
-        body('lancamento').notEmpty().withMessage("O campo lançamento é obrigatório"),
-        body('genero').notEmpty().withMessage("O campo gênero é obrigatório"),
-        body('descricao').notEmpty().withMessage("O campo descrição é obrigatório"),
-        body('imagem').notEmpty().withMessage("O campo imagem é obrigatório"),
-
-    ], adicionarFilme);
+//Inserir Filme / Usuario / Avaliacao /Realizar login
+rotas.post("/usuario", validarPostUsuario, controladorValidacao, adicionarUsuario)
+rotas.post(`/filme`, validarPostFilme, controladorValidacao, adicionarFilme);
 rotas.post("/avaliacao", adicionarAvaliacao)
-
-//Realizar login
 rotas.post('/usuarios/login', (req, res) => {
     const { email, senha } = req.body;
 
@@ -53,22 +43,6 @@ rotas.post('/usuarios/login', (req, res) => {
         res.status(401).json({ autenticado: false, mensagem: 'Credenciais inválidas. Tente novamente.' });
     }
 });
-
-/* ----------ROTAS PUT --------->  */
-//Editar Filme / Usuario
-rotas.put('/filme/:id', editarFilme)
-rotas.put('/usuario/:id', editarUsuario)
-rotas.put("/avaliacao", editarAvaliacao)
-
-
-
-/* ----------ROTAS Delete --------->  */
-//Remover filme / Usuario
-rotas.delete("/filme/:id", removerFilme)
-rotas.delete("/usuario/:id", deletarUsuario)
-rotas.delete("/avaliacao/:id", removerAvaliacao)
-
-// DAVI
 rotas.post('/usuarios/verificar-token', (req, res) => {
     const token = req.body.token;
 
@@ -84,13 +58,19 @@ rotas.post('/usuarios/verificar-token', (req, res) => {
     }
 });
 
+/* ----------ROTAS PUT --------->  */
+//Editar Filme / Usuario
+rotas.put('/filme/:id', editarFilme)
+rotas.put('/usuario/:id', editarUsuario)
+rotas.put("/avaliacao", editarAvaliacao)
+
+
+
+/* ----------ROTAS Delete --------->  */
+//Remover filme / Usuario
+rotas.delete("/filme/:id", removerFilme)
+rotas.delete("/usuario/:id", deletarUsuario)
+rotas.delete("/avaliacao/:id", removerAvaliacao)
+
 
 module.exports = rotas; //EXPORTANDO ROTAS
-
-// body('titulo').notEmpty().withMessage("O campo título é obrigatório"),
-// body('diretor').notEmpty().withMessage("O campo diretor é obrigatório"),
-// body('lancamento').notEmpty().withMessage("O campo lançamento é obrigatório"),
-// body('genero').notEmpty().withMessage("O campo gênero é obrigatório"),
-// body('descricao').notEmpty().withMessage("O campo descrição é obrigatório"),
-// body('imagem').notEmpty().withMessage("O campo imagem é obrigatório"),
-
