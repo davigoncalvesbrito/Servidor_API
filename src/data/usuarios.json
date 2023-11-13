@@ -22,11 +22,21 @@
         "nome": "Fulano",
         "email": "fulano@gmail.com",
         "senha": "fulano"
-    },
+    }
     {
         "id": 5,
         "nome": "Beltrano",
         "email": "beltrano@gmail.com",
         "senha": "beltrano"
+        "id": 7,
+        "nome": "eudes",
+        "email": "eudessena",
+        "senha": "1234"
+    },
+    {
+        "id": 5,
+        "nome": "davi",
+        "email": "123",
+        "senha": "123"
     }
 ]
