@@ -9,14 +9,6 @@ let idUsuario = jsonUsuarios.length + 1;
 function adicionarUsuario(req, res) {
     try {
 
-        //Aqui ele recebe os erros da requisição e não chega a adicionar nada caso tenha algum.
-        const errors = validationResult(req);
-        console.log(errors)
-
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
-
         //Recebe os atributos de usuário vindos do body da requisição
         const { nome, email, senha } = req.body; // OBTENDO O CORPO DA SOLICITAÇÃO  JSON
 

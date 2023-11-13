@@ -18,6 +18,16 @@
         "senha": "teste1"
     },
     {
+        "id": 4,
+        "nome": "Fulano",
+        "email": "fulano@gmail.com",
+        "senha": "fulano"
+    }
+    {
+        "id": 5,
+        "nome": "Beltrano",
+        "email": "beltrano@gmail.com",
+        "senha": "beltrano"
         "id": 7,
         "nome": "eudes",
         "email": "eudessena",
