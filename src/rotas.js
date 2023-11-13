@@ -21,51 +21,38 @@ rotas.get("/avaliacao", listarAvaliacao)
 
 /* ----------ROTAS POST --------->  */
 //Inserir Filme / Usuario / Avaliacao
-rotas.post(`/filme`, adicionarFilme);
-
-
 rotas.post("/usuario", validarPostUsuario, requisicaoValidada, adicionarUsuario)
 rotas.post(`/filme`,
-  [
-    body('titulo').notEmpty().withMessage("O campo título é obrigatório"),
-    body('diretor').notEmpty().withMessage("O campo diretor é obrigatório"),
-    body('lancamento').notEmpty().withMessage("O campo lançamento é obrigatório"),
-    body('genero').notEmpty().withMessage("O campo gênero é obrigatório"),
-    body('descricao').notEmpty().withMessage("O campo descrição é obrigatório"),
-    body('imagem').notEmpty().withMessage("O campo imagem é obrigatório"),
+    [
+        body('titulo').notEmpty().withMessage("O campo título é obrigatório"),
+        body('diretor').notEmpty().withMessage("O campo diretor é obrigatório"),
+        body('lancamento').notEmpty().withMessage("O campo lançamento é obrigatório"),
+        body('genero').notEmpty().withMessage("O campo gênero é obrigatório"),
+        body('descricao').notEmpty().withMessage("O campo descrição é obrigatório"),
+        body('imagem').notEmpty().withMessage("O campo imagem é obrigatório"),
 
-  ], adicionarFilme);
-
-//Inserir Usuário
-rotas.post("/usuario", [
-  body('nome').notEmpty().withMessage("O campo nome é obrigatório"),
-  body('email').notEmpty().withMessage("O campo email é obrigatório"),
-  body('senha').notEmpty().withMessage("O campo senha é obrigatório"),
-], adicionarUsuario)
-
+    ], adicionarFilme);
+rotas.post("/avaliacao", adicionarAvaliacao)
 
 //Realizar login
 rotas.post('/usuarios/login', (req, res) => {
-  const { email, senha } = req.body;
+    const { email, senha } = req.body;
 
-  // Biblioteca para acessar a pasta 'usuarios.json'
-  const path = require('path');
-  const usuariosPath = path.join(__dirname, 'data', 'usuarios.json');
-  const usuarios = JSON.parse(fs.readFileSync(usuariosPath, 'utf-8'));
+    // Biblioteca para acessar a pasta 'usuarios.json'
+    const path = require('path');
+    const usuariosPath = path.join(__dirname, 'data', 'usuarios.json');
+    const usuarios = JSON.parse(fs.readFileSync(usuariosPath, 'utf-8'));
 
-  // Encontra o usuário com base no e-mail e senha
-  const usuarioAutenticado = usuarios.find((usuario) => usuario.email === email && usuario.senha === senha);
+    // Encontra o usuário com base no e-mail e senha
+    const usuarioAutenticado = usuarios.find((usuario) => usuario.email === email && usuario.senha === senha);
 
-  if (usuarioAutenticado) {
-    // Inclua o nome do usuário na resposta
-    res.json({ autenticado: true, mensagem: 'Login bem-sucedido!', nome: usuarioAutenticado.nome });
-  } else {
-    res.status(401).json({ autenticado: false, mensagem: 'Credenciais inválidas. Tente novamente.' });
-  }
+    if (usuarioAutenticado) {
+        // Inclua o nome do usuário na resposta
+        res.json({ autenticado: true, mensagem: 'Login bem-sucedido!', nome: usuarioAutenticado.nome });
+    } else {
+        res.status(401).json({ autenticado: false, mensagem: 'Credenciais inválidas. Tente novamente.' });
+    }
 });
-
-rotas.post("/avaliacao", adicionarAvaliacao)
-
 
 /* ----------ROTAS PUT --------->  */
 //Editar Filme / Usuario
@@ -83,18 +70,18 @@ rotas.delete("/avaliacao/:id", removerAvaliacao)
 
 // DAVI
 rotas.post('/usuarios/verificar-token', (req, res) => {
-  const token = req.body.token;
+    const token = req.body.token;
 
-  // Aqui você deve implementar a lógica para verificar se o token é válido no seu servidor
-  // Se for válido, retorne informações do usuário (como nome) junto com um status de sucesso
-  // Se não for válido, retorne um status de erro ou token inválido
+    // Aqui você deve implementar a lógica para verificar se o token é válido no seu servidor
+    // Se for válido, retorne informações do usuário (como nome) junto com um status de sucesso
+    // Se não for válido, retorne um status de erro ou token inválido
 
-  // Exemplo básico (não seguro, apenas para ilustração)
-  if (token === 'token_valido') {
-    res.json({ autenticado: true, nomeUsuario: 'Nome do Usuário' });
-  } else {
-    res.status(401).json({ autenticado: false, mensagem: 'Token inválido' });
-  }
+    // Exemplo básico (não seguro, apenas para ilustração)
+    if (token === 'token_valido') {
+        res.json({ autenticado: true, nomeUsuario: 'Nome do Usuário' });
+    } else {
+        res.status(401).json({ autenticado: false, mensagem: 'Token inválido' });
+    }
 });
 
 
