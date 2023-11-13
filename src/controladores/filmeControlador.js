@@ -7,14 +7,6 @@ let idFilme = jsonFilmes.length + 2; //Usado para setar o id do filme automatica
 
 function adicionarFilme(req, res) {
     try {
-
-        //Aqui ele recebe os erros da requisição e não chega a adicionar nada caso tenha algum.
-        const errors = validationResult(req);
-        console.log(errors)
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
-
         //Recebe os atributos de usuário vindos do body da requisição
         const { titulo, diretor, lancamento, genero, descricao, imagem, ondeAssistir } = req.body; // OBTENDO O CORPO DA SOLICITAÇÃO  JSON
 
