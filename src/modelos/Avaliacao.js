@@ -1,5 +1,6 @@
 class Avalicacao {
-    constructor(idUsuario, idFilme, comentario, curtiu) {
+    constructor(id, idUsuario, idFilme, comentario, curtiu) {
+        this.id = id
         this.idUsuario = idUsuario;
         this.idFilme = idFilme;
         this.comentario = comentario;

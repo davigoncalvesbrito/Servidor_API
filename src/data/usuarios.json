@@ -12,23 +12,7 @@
         "senha": "teste2"
     },
     {
-        "nome": 3,
-        "email": "Marcio",
-        "senha": "mrcioholanda@gmail.com"
-    },
-    {
-        "nome": 4,
-        "email": "Marcio",
-        "senha": "davi.com"
-    },
-    {
-        "id": 5,
-        "email": "davi@gmail.com",
-        "nome": "Marcio",
-        "senha": "teste"
-    },
-    {
-        "id": 6,
+        "id": 3,
         "nome": "Marcio",
         "email": "marcio.com",
         "senha": "teste1"
