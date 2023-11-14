@@ -1,6 +1,7 @@
 const express = require("express");
 const rotas = express.Router();
 const fs = require('fs');
+
 const filmes = require("./data/filmes.json");
 const { adicionarFilme, editarFilme, listarFilme, removerFilme } = require("./controladores/filmeControlador")
 const { adicionarUsuario, listarUsuarios, editarUsuario, deletarUsuario } = require("./controladores/usuarioControlador") //Importando controlador Filmes
@@ -9,7 +10,6 @@ const { body, validationResult } = require("express-validator")
 const validarPostUsuario = require("../src/util/validarUsuario")
 const validarPostFilme = require("../src/util/validarFilme")
 const controladorValidacao = require("./util/controladorValidacao")
-
 
 
 /* ----------ROTAS GET --------->  */
