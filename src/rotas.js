@@ -7,9 +7,9 @@ const { adicionarFilme, editarFilme, listarFilme, removerFilme } = require("./co
 const { adicionarUsuario, listarUsuarios, editarUsuario, deletarUsuario } = require("./controladores/usuarioControlador") //Importando controlador Filmes
 const { adicionarAvaliacao, editarAvaliacao, listarAvaliacao, removerAvaliacao } = require("./controladores/avaliacaoControlador");
 const { body, validationResult } = require("express-validator")
-const validarPostUsuario = require("../src/util/validarUsuario")
-const validarPostFilme = require("../src/util/validarFilme")
-const controladorValidacao = require("./util/controladorValidacao")
+const validarPostUsuario = require("./util/validacoes/validarUsuario")
+const validarPostFilme = require("./util/validacoes/validarFilme")
+const controladorValidacao = require("./util/middleware/controladorValidacao")
 
 
 /* ----------ROTAS GET --------->  */
