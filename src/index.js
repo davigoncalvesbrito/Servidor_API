@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require('cors');
 const swaggerUi = require("swagger-ui-express")
-const swaggerFile = require("./swagger_output.json")
+const swaggerFile = require("../swagger/swagger_output.json")
 const rotas = require("./rotas"); // REQUERENDO AS ROTAS
 
 const servidor = express();
