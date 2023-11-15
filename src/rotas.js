@@ -9,22 +9,24 @@ const { adicionarAvaliacao, editarAvaliacao, listarAvaliacao, removerAvaliacao }
 const { body, validationResult } = require("express-validator")
 const validarPostUsuario = require("./util/validacoes/validarUsuario")
 const validarPostFilme = require("./util/validacoes/validarFilme")
+const validarPostAvaliacao = require("./util/validacoes/validarAval")
 const controladorValidacao = require("./util/middleware/controladorValidacao")
 
 
 /* ----------ROTAS GET --------->  */
-rotas.get("/filmes", listarFilme)
-rotas.get("/usuarios", listarUsuarios)
-rotas.get("/avaliacao", listarAvaliacao)
+rotas.get("/listarfilme", listarFilme)
+rotas.get("/listarusuario", listarUsuarios)
+rotas.get("/listaravaliacao", listarAvaliacao)
 //pode montar localhost:3000/avaliacao?idUsuario=4 no navegador
 //pode montar localhost:3000/avaliacao?idFilme=4 no navegador
 
 
 /* ----------ROTAS POST --------->  */
 //Inserir Filme / Usuario / Avaliacao /Realizar login
-rotas.post("/usuario", validarPostUsuario, controladorValidacao, adicionarUsuario)
-rotas.post(`/filme`, validarPostFilme, controladorValidacao, adicionarFilme);
-rotas.post("/avaliacao", adicionarAvaliacao)
+rotas.post("/addusuario", validarPostUsuario, controladorValidacao, adicionarUsuario)
+rotas.post(`/addfilme`, validarPostFilme, controladorValidacao, adicionarFilme);
+rotas.post("/addavaliacao", validarPostAvaliacao, controladorValidacao, adicionarAvaliacao)
+
 rotas.post('/usuarios/login', (req, res) => {
     const { email, senha } = req.body;
 
@@ -60,17 +62,17 @@ rotas.post('/usuarios/verificar-token', (req, res) => {
 
 /* ----------ROTAS PUT --------->  */
 //Editar Filme / Usuario
-rotas.put('/filme/:id', editarFilme)
-rotas.put('/usuario/:id', editarUsuario)
-rotas.put("/avaliacao", editarAvaliacao)
+rotas.put('/editarfilme/:id', validarPostFilme, controladorValidacao, editarFilme)
+rotas.put('/editarusuario/:id', validarPostUsuario, controladorValidacao, editarUsuario)
+rotas.put("/editaravaliacao", validarPostAvaliacao, controladorValidacao, editarAvaliacao)
 
 
 
 /* ----------ROTAS Delete --------->  */
 //Remover filme / Usuario
-rotas.delete("/filme/:id", removerFilme)
-rotas.delete("/usuario/:id", deletarUsuario)
-rotas.delete("/avaliacao/:id", removerAvaliacao)
+rotas.delete("/deletarfilme/:id", removerFilme)
+rotas.delete("/deletarusuario/:id", deletarUsuario)
+rotas.delete("/deletaravaliacao/:id", removerAvaliacao)
 
 
 module.exports = rotas; //EXPORTANDO ROTAS
